@@ -7,7 +7,11 @@ public class Menu : MonoBehaviour
 {
     public void Playbutton()
     {
-        SceneManager.LoadScene("Sling");
+        SceneManager.LoadScene("LevelChanger");
+    }
+    public void OnQuitButton()
+    {
+        Application.Quit();
     }
 
 }

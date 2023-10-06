@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScreen.unity
+    guid: 010d70952afc27e42a6cba154972f998
+  - enabled: 1
+    path: Assets/Scenes/LevelChanger.unity
+    guid: e4a2d8ffa6959f345a409defb176e296
+  - enabled: 1
     path: Assets/Scenes/Sling.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
