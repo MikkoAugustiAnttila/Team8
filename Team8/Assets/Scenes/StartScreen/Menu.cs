@@ -7,7 +7,11 @@ public class Menu : MonoBehaviour
 {
     public void Playbutton()
     {
-        SceneManager.LoadScene("LevelChanger");
+        /*
+        SceneManager.LoadScene("LevelChanger", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        */
+        basicManagement.basemanagement.ChangeToScene("LevelChanger");
     }
     public void OnQuitButton()
     {

@@ -14,7 +14,7 @@ public class LevelChangerMenu : MonoBehaviour
     }
     public void Level1()
     {
-        SceneManager.LoadScene("Sling");
+        basicManagement.basemanagement.ChangeToScene("Sling");
     }
     public void SetLevelActive(int value)
     {
