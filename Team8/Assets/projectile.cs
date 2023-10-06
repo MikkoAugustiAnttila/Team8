@@ -9,6 +9,7 @@ public class projectile : MonoBehaviour
 {
     private bool pressed;
     private bool notClicked = true;
+    private bool inFlight = false;
     private Rigidbody2D rb;
     private Camera cam;
     private SpringJoint2D joint;
@@ -31,6 +32,7 @@ public class projectile : MonoBehaviour
         cam = Camera.main;
 
         releaseDelay = 1 / (joint.frequency * 4);
+        renderer.enabled = false;
     }
 
     private void Update()
@@ -44,16 +46,13 @@ public class projectile : MonoBehaviour
         {
             rb.position = pivot.transform.position;
         }
-        /*
-        if (transform.position.x <= pivot.transform.position.x+0.1f)
+
+        //Debug.Log(Vector3.Distance(transform.position, pivot.transform.position));
+        if (Vector3.Distance(transform.position, pivot.transform.position) <= 0.8f && inFlight == true)
         {
-            renderer.enabled = false;
-        }
-        else
-        {
+            gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
             renderer.enabled = true;
         }
-        */
     }
 
     private void Drag()
@@ -79,10 +78,14 @@ public class projectile : MonoBehaviour
 
     private void OnMouseUp()
     {
-        rb.isKinematic = false;
-        pressed = false;
-        StartCoroutine("release");
-        StartCoroutine("die");
+        if (pressed == true)
+        {
+            inFlight = true;
+            rb.isKinematic = false;
+            pressed = false;
+            StartCoroutine("release");
+            StartCoroutine("die");
+        }
     }
 
     private IEnumerator release()
