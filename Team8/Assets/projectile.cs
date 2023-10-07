@@ -21,14 +21,16 @@ public class projectile : MonoBehaviour
 
     [SerializeField] private GameObject star;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer projectileRenderer;
 
     private GameObject cannon;
+
+    public GameObject explode;
 
     private void Start()
     {
         cannon = GameObject.FindGameObjectWithTag("Player");
-        renderer = GetComponent<SpriteRenderer>();
+        projectileRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         joint = GetComponent<SpringJoint2D>();
         pivot = GameObject.FindGameObjectWithTag("pivot");
@@ -37,7 +39,7 @@ public class projectile : MonoBehaviour
         cam = Camera.main;
 
         releaseDelay = 1 / (joint.frequency * 4);
-        renderer.enabled = false;
+        projectileRenderer.enabled = false;
     }
 
     private void Update()
@@ -59,7 +61,7 @@ public class projectile : MonoBehaviour
         {
             star.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
-            renderer.enabled = true;
+            projectileRenderer.enabled = true;
         }
     }
 
@@ -70,9 +72,9 @@ public class projectile : MonoBehaviour
         rb.position = worldPos;
         if (star.transform.position != pivot.transform.position)
         {
-            star.transform.localScale = new Vector3(1 / Vector3.Distance(star.transform.position, pivot.transform.position),
-                1 / Vector3.Distance(star.transform.position, pivot.transform.position),
-                1 / Vector3.Distance(star.transform.position, pivot.transform.position));
+            star.transform.localScale = new Vector3(Vector3.Distance(star.transform.position, pivot.transform.position)/2,
+                Vector3.Distance(star.transform.position, pivot.transform.position)/2,
+                Vector3.Distance(star.transform.position, pivot.transform.position)/2);
         }
     }
 
@@ -104,12 +106,15 @@ public class projectile : MonoBehaviour
         gameObject.GetComponent<CircleCollider2D>().radius /= gameObject.GetComponent<CircleCollider2D>().radius * 2;
         yield return new WaitForSeconds(releaseDelay);
         joint.enabled = false;
+        joint.enabled = false;
     }
 
     private IEnumerator die()
     {
         yield return new WaitForSeconds(deathTime);
         basicManagement.basemanagement.createProjectile();
+        GameObject exploder = Instantiate(explode, transform.position, quaternion.identity);
+        exploder.transform.parent = null;
         Destroy(gameObject);
     }
 }

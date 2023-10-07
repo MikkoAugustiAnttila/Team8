@@ -14,7 +14,14 @@ public class LevelChangerMenu : MonoBehaviour
     }
     public void Level1()
     {
-        basicManagement.basemanagement.ChangeToScene("Sling");
+        if (basicManagement.basemanagement.lastBug == "TutorialGlitch")
+        {
+            basicManagement.basemanagement.ChangeToScene("TutorialVariant 2");
+        }
+        else
+        {
+            basicManagement.basemanagement.ChangeToScene("TutorialVariant 1");
+        }
     }
     public void SetLevelActive(int value)
     {

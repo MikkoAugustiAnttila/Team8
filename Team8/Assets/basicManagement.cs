@@ -16,8 +16,12 @@ public class basicManagement : MonoBehaviour
 
     public bool enableTextBox;
     [SerializeField] private TextMeshProUGUI textBox;
-    public float letterDelay = 0.1f;
+    [SerializeField] private Image boxForText;
+    public float letterDelay;
+    [SerializeField] private float sentenceDelay;
     private int index;
+
+    public string lastBug;
     
     
 
@@ -32,29 +36,36 @@ public class basicManagement : MonoBehaviour
         if (enableTextBox == true)
         {
             textBox.enabled = true;
+            boxForText.enabled = true;
         }
         else
         {
             textBox.enabled = false;
+            boxForText.enabled = false;
         }
     }
     
-    public void DialogChunk(params string[] chunkSet)
+    public void DialogChunk(bool returnToStageManager, params string[] chunkSet)
     {
+        StopAllCoroutines();
         enableTextBox = true;
-        StartCoroutine(DisplayChunksWithDelay(chunkSet));
+        StartCoroutine(DisplayChunksWithDelay(chunkSet, returnToStageManager));
     }
 
-    private IEnumerator DisplayChunksWithDelay(string[] chunkSet)
+    private IEnumerator DisplayChunksWithDelay(string[] chunkSet, bool returnToStageManager)
     {
         foreach (string chunk in chunkSet)
         {
             yield return StartCoroutine(DisplayTextLetterByLetter(chunk));
             // Pause for a moment before displaying the next chunk
-            yield return new WaitForSeconds(5.0f);
+            yield return new WaitForSeconds(sentenceDelay);
         }
 
         enableTextBox = false;
+        if (returnToStageManager == true)
+        {
+            stageManager.stateManagement.managementSignal = true;
+        }
     }
 
     private IEnumerator DisplayTextLetterByLetter(string text)
