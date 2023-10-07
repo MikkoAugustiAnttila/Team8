@@ -62,6 +62,7 @@ public class projectile : MonoBehaviour
             star.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
             projectileRenderer.enabled = true;
+            stageManager.stateManagement.playerFired = true;
         }
     }
 

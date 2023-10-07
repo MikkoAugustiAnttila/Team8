@@ -1580,6 +1580,11 @@ MonoBehaviour:
   - Good Job Comrade!
   - Too easy? Pah, don't worry we'll find bigger castles for you to blast soon enough
   - Let's return to the map check out what's next!
+  - 
+  - 
+  - 
+  - 'NullReferenceException: Object reference not set to an instance of an object
+    at ####################################################'
   startDialog:
   - Welcome connoneer!
   - I know it's your first time handling this beautiful firearm, so let me give you
@@ -1588,6 +1593,7 @@ MonoBehaviour:
     let it blast out against those capitalist pigs!
   triggerDialog: []
   triggerType: 
+  playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
 --- !u!4 &1766582733

@@ -153,11 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1166203858592090658, guid: fa7f43f0ca5b32e4f92463dc43c06b8e, type: 3}
+  pivot: {fileID: 0}
   enableTextBox: 0
   textBox: {fileID: 556212896}
   boxForText: {fileID: 1656390413}
   letterDelay: 0.02
-  sentenceDelay: 0
+  sentenceDelay: 1
   lastBug: NewGame
 --- !u!4 &2718516
 Transform:

@@ -11,6 +11,7 @@ public class stageManager : MonoBehaviour
     [SerializeField] private string[] startDialog;
     [SerializeField] private string[] triggerDialog;
     [SerializeField] private string triggerType;
+    public bool playerFired;
     [SerializeField] private string whatToDoAtEnd;
     public bool managementSignal;
 
@@ -35,6 +36,16 @@ public class stageManager : MonoBehaviour
             basicManagement.basemanagement.DialogChunk(true, afterKills);
             killsLeft--;
         }
+
+        if (triggerType != null)
+        {
+            if (triggerType == "Fire" && playerFired == true)
+            {
+                basicManagement.basemanagement.DialogChunk(true, triggerDialog);
+                triggerType = null;
+            }
+        }
+        
 
         if (managementSignal == true && whatToDoAtEnd != null)
         {
