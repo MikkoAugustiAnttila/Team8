@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class stageManager : MonoBehaviour
     [SerializeField] private int maxShots;
     public int shotsLeft;
     [SerializeField] private TextMeshProUGUI shotCounter;
+    
     
 
     private void Awake()
@@ -61,8 +63,7 @@ public class stageManager : MonoBehaviour
 
         if (shotsLeft == 0 && maxShots != 0 && killsLeft <= 2)
         {
-            managementSignal = true;
-            whatToDoAtEnd = "resetScene";
+            StartCoroutine("endDelay");
         }
         
 
@@ -71,6 +72,7 @@ public class stageManager : MonoBehaviour
             managementSignal = false;
             shotCounter.enabled = false;
             shotsLeft = 999;
+            StopCoroutine("endDelay");
             if (whatToDoAtEnd == "returnToMenuGlitch1")
             {
                 basicManagement.basemanagement.lastBug = "TutorialGlitch";
@@ -86,5 +88,12 @@ public class stageManager : MonoBehaviour
                 basicManagement.basemanagement.ChangeToScene(SceneManager.GetActiveScene().name);
             }
         }
+    }
+    
+    private IEnumerator endDelay()
+    {
+        yield return new WaitForSeconds(10f);
+        managementSignal = true;
+        whatToDoAtEnd = "resetScene";
     }
 }
