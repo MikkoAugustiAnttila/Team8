@@ -9,9 +9,10 @@ public class LevelChangerMenu : MonoBehaviour
     public Button[] _buttons;
     private void Start()
     {
-        //SetLevelActive(2);
         
+
     }
+
     public void Level1()
     {
         if (basicManagement.basemanagement.lastBug == "NewGame")
@@ -24,13 +25,34 @@ public class LevelChangerMenu : MonoBehaviour
         }
         else
         {
+            SetLevelActive(2);
             basicManagement.basemanagement.ChangeToScene("TutorialVariant 3");
+            
         }
+        
+    }
+    public void Level2()
+    {
+        SetLevelActive(3);
+        basicManagement.basemanagement.ChangeToScene("Stage 1");
+        
+    }
+    public void Level3()
+    {
+        basicManagement.basemanagement.ChangeToScene("Stage 2");
     }
     public void SetLevelActive(int value)
     {
-        _buttons[value+1].interactable = true;
+        _buttons[value-1].interactable = true;
     }
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown("p"))
+        {
+            SetLevelActive(2);
+            SetLevelActive(3);
+            SetLevelActive(4);
+        }
+    }
 
 }
