@@ -15,6 +15,7 @@ public class stageManager : MonoBehaviour
     [SerializeField] private string[] startDialog;
     [SerializeField] private string[] triggerDialog;
     [SerializeField] private string triggerType;
+    [SerializeField] private int CurrentLevel;
     public bool playerFired;
     [SerializeField] private string whatToDoAtEnd;
     public bool managementSignal;
@@ -81,7 +82,12 @@ public class stageManager : MonoBehaviour
             if (whatToDoAtEnd == "returnToMenuReset")
             {
                 basicManagement.basemanagement.lastBug = "";
+                if (basicManagement.basemanagement.progression <= CurrentLevel)
+                {
+                    basicManagement.basemanagement.progression++;
+                }
                 basicManagement.basemanagement.ChangeToScene("LevelChanger");
+                
             }
             if (whatToDoAtEnd == "resetScene")
             {

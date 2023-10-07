@@ -2344,6 +2344,7 @@ MonoBehaviour:
   - Demolish that darn thing and show them!
   triggerDialog: []
   triggerType: 
+  CurrentLevel: 2
   playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
