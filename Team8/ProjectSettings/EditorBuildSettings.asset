@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelChanger.unity
     guid: e4a2d8ffa6959f345a409defb176e296
   - enabled: 1
-    path: Assets/Scenes/Sling.unity
+    path: Assets/Scenes/Stage/TutorialVariant 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/ManagerScene.unity
     guid: b6f9dac5b0d368845abf116675252746
+  - enabled: 1
+    path: Assets/Scenes/Stage/TutorialVariant 2.unity
+    guid: 1d3fec355242b994fb1397904db49791
   m_configObjects: {}
