@@ -7,6 +7,10 @@ public class openManagerScene : MonoBehaviour
 {
     void Start()
     {
-        SceneManager.LoadScene("ManagerScene", LoadSceneMode.Additive);
+        if (GameObject.FindGameObjectWithTag("Management") == null)
+        {
+            SceneManager.LoadScene("ManagerScene", LoadSceneMode.Additive);
+        }
+        Destroy(gameObject);
     }
 }

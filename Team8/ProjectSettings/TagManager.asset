@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pivot
   - Projectile
+  - Management
   layers:
   - Default
   - TransparentFX

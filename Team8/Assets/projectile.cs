@@ -19,10 +19,16 @@ public class projectile : MonoBehaviour
     private float releaseDelay;
     [SerializeField] private float deathTime;
 
+    [SerializeField]
+    private GameObject star;
+
     private SpriteRenderer renderer;
+
+    private GameObject cannon;
     
     private void Start()
     {
+        cannon = GameObject.FindGameObjectWithTag("Player");
         renderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         joint = GetComponent<SpringJoint2D>();
@@ -46,10 +52,13 @@ public class projectile : MonoBehaviour
         {
             rb.position = pivot.transform.position;
         }
+        
+        star.transform.rotation = cannon.transform.rotation;
 
         //Debug.Log(Vector3.Distance(transform.position, pivot.transform.position));
         if (Vector3.Distance(transform.position, pivot.transform.position) <= 0.8f && inFlight == true)
         {
+            star.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().isTrigger = false;
             renderer.enabled = true;
         }
@@ -59,10 +68,10 @@ public class projectile : MonoBehaviour
     {
         Vector2 mousePos = Input.mousePosition;
         Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
-        /*if (worldPos.x <= pivot.transform.position.x)
-        {*/
-            rb.position = worldPos;
-        //}
+        rb.position = worldPos;
+        star.transform.localScale = new Vector3( 1/ Vector3.Distance(star.transform.position, pivot.transform.position),
+            1 / Vector3.Distance(star.transform.position, pivot.transform.position),
+            1 / Vector3.Distance(star.transform.position, pivot.transform.position));
     }
 
     private void OnMouseDown()
@@ -90,6 +99,7 @@ public class projectile : MonoBehaviour
 
     private IEnumerator release()
     {
+        gameObject.GetComponent<CircleCollider2D>().radius /= gameObject.GetComponent<CircleCollider2D>().radius*2;
         yield return new WaitForSeconds(releaseDelay);
         joint.enabled = false;
     }
