@@ -7,9 +7,16 @@ using UnityEngine.UI;
 public class LevelChangerMenu : MonoBehaviour
 {
     public Button[] _buttons;
+    private int _progression;
     private void Start()
     {
-        
+        _progression = basicManagement.basemanagement.progression;
+        while (_progression > 0)
+        {
+            SetLevelActive(_progression);
+            _progression--;
+
+        }
 
     }
 

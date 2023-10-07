@@ -25,6 +25,7 @@ public class basicManagement : MonoBehaviour
     [SerializeField] private AudioClip textAudio;
 
     public string lastBug;
+    public int progression = 1;
     
     
 
