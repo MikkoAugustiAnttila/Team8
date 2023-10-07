@@ -12,7 +12,7 @@ public class basicManagement : MonoBehaviour
 {
     public static basicManagement basemanagement;
     public GameObject projectile;
-    private GameObject pivot;
+    [SerializeField] private GameObject pivot;
 
     public bool enableTextBox;
     [SerializeField] private TextMeshProUGUI textBox;
@@ -28,7 +28,6 @@ public class basicManagement : MonoBehaviour
     private void Awake()
     {
         basemanagement = this;
-        pivot = GameObject.FindGameObjectWithTag("pivot");
     }
 
     private void Update()
@@ -47,7 +46,8 @@ public class basicManagement : MonoBehaviour
     
     public void DialogChunk(bool returnToStageManager, params string[] chunkSet)
     {
-        StopAllCoroutines();
+        StopCoroutine("DisplayChunksWithDelay");
+        StopCoroutine("DisplayTextLetterByLetter");
         enableTextBox = true;
         StartCoroutine(DisplayChunksWithDelay(chunkSet, returnToStageManager));
     }
@@ -87,16 +87,43 @@ public class basicManagement : MonoBehaviour
 
     public void ChangeToScene(string name)
     {
-        Debug.Log(name);
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene(name, LoadSceneMode.Additive);
-        StartCoroutine("delay", name);
+        // Ensure that "ManagerScene" is loaded and get its index
+        int managerSceneIndex = SceneManager.GetSceneByName("ManagerScene").buildIndex;
+        if (!SceneManager.GetSceneByBuildIndex(managerSceneIndex).isLoaded)
+        {
+            SceneManager.LoadScene("ManagerScene", LoadSceneMode.Additive);
+        }
+
+        // Unload all scenes except "ManagerScene"
+        Scene[] scenes = SceneManager.GetAllScenes();
+        foreach (Scene scene in scenes)
+        {
+            if (scene.buildIndex != managerSceneIndex)
+            {
+                SceneManager.UnloadSceneAsync(scene);
+            }
+        }
+
+        // Load the new scene additively
+        SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
+        
+        // Delay for a short time before setting the new scene as active
+        StartCoroutine(SetActiveSceneDelayed(name));
     }
 
-    IEnumerator delay(string name)
+    private IEnumerator SetActiveSceneDelayed(string name)
     {
         yield return new WaitForSeconds(0.1f);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
-        Debug.Log(SceneManager.GetSceneByName(name));
+        
+        Scene newScene = SceneManager.GetSceneByName(name);
+        if (newScene.isLoaded)
+        {
+            SceneManager.SetActiveScene(newScene);
+            pivot = GameObject.FindGameObjectWithTag("pivot");
+        }
+        else
+        {
+            Debug.LogError("Scene not loaded: " + name);
+        }
     }
 }

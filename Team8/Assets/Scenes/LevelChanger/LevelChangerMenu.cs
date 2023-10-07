@@ -14,7 +14,11 @@ public class LevelChangerMenu : MonoBehaviour
     }
     public void Level1()
     {
-        if (basicManagement.basemanagement.lastBug == "TutorialGlitch")
+        if (basicManagement.basemanagement.lastBug == "NewGame")
+        {
+            basicManagement.basemanagement.ChangeToScene("TutorialVariant 1");
+        }
+        else if (basicManagement.basemanagement.lastBug == "TutorialGlitch")
         {
             basicManagement.basemanagement.ChangeToScene("TutorialVariant 2");
         }

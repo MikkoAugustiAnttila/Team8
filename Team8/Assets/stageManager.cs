@@ -9,6 +9,8 @@ public class stageManager : MonoBehaviour
     public int killsLeft;
     [SerializeField] private string[] afterKills;
     [SerializeField] private string[] startDialog;
+    [SerializeField] private string[] triggerDialog;
+    [SerializeField] private string triggerType;
     [SerializeField] private string whatToDoAtEnd;
     public bool managementSignal;
 
@@ -40,6 +42,11 @@ public class stageManager : MonoBehaviour
             if (whatToDoAtEnd == "returnToMenuGlitch1")
             {
                 basicManagement.basemanagement.lastBug = "TutorialGlitch";
+                basicManagement.basemanagement.ChangeToScene("LevelChanger");
+            }
+            if (whatToDoAtEnd == "returnToMenuReset")
+            {
+                basicManagement.basemanagement.lastBug = "";
                 basicManagement.basemanagement.ChangeToScene("LevelChanger");
             }
         }

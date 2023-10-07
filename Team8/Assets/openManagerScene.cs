@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class openManagerScene : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         if (GameObject.FindGameObjectWithTag("Management") == null)
         {

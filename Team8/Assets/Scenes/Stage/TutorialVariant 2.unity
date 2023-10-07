@@ -911,6 +911,13 @@ MonoBehaviour:
     some guidance.
   - Simply press down on the cannon and drag. Use this to aim your shot and then
     let it blast out against those capitalist pigs!
+  triggerDialog:
+  - Hello. This is "2" speaking.
+  - 'You might be wondering what this landscape is. The answer is simple: its an
+    earlier version of the stage that "1" was too lazy to delete out of the code.'
+  - I did this becaus
+  - 'IndexOutOfRangeException: Index was outside the bounds of the array.'
+  triggerType: 
   whatToDoAtEnd: returnToMenuGlitch1
   managementSignal: 0
 --- !u!4 &1766582733
