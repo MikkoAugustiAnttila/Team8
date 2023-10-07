@@ -12,7 +12,7 @@ public class basicManagement : MonoBehaviour
 {
     public static basicManagement basemanagement;
     private Coroutine displayChunksCoroutine;
-    private Coroutine displayTextCoroutine;
+    private Coroutine displayTextLetterByLetterCoroutine;
     public GameObject projectile;
     [SerializeField] private GameObject pivot;
 
@@ -54,9 +54,9 @@ public class basicManagement : MonoBehaviour
         {
             StopCoroutine(displayChunksCoroutine);
         }
-        if (displayTextCoroutine != null)
+        if (displayTextLetterByLetterCoroutine != null)
         {
-            StopCoroutine(displayTextCoroutine);
+            StopCoroutine(displayTextLetterByLetterCoroutine);
         }
 
         textBox.text = "";
@@ -69,12 +69,15 @@ public class basicManagement : MonoBehaviour
         foreach (string chunk in chunkSet)
         {
             // Stop the previous coroutine to give precedence to the new chunk
-            if (displayTextCoroutine != null)
+            if (displayTextLetterByLetterCoroutine != null)
             {
-                StopCoroutine(displayTextCoroutine);
+                StopCoroutine(displayTextLetterByLetterCoroutine);
             }
 
-            yield return StartCoroutine(DisplayTextLetterByLetter(chunk));
+            displayTextLetterByLetterCoroutine = StartCoroutine(DisplayTextLetterByLetter(chunk));
+
+            // Wait for the current chunk to be fully displayed
+            yield return displayTextLetterByLetterCoroutine;
 
             // Wait for seconds after fully displaying the current chunk
             yield return new WaitForSeconds(sentenceDelay);
