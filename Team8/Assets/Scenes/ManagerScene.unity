@@ -133,6 +133,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2718516}
   - component: {fileID: 2718515}
+  - component: {fileID: 2718519}
+  - component: {fileID: 2718518}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Management
@@ -157,8 +159,9 @@ MonoBehaviour:
   enableTextBox: 0
   textBox: {fileID: 556212896}
   boxForText: {fileID: 1656390413}
-  letterDelay: 0.02
-  sentenceDelay: 1
+  letterDelay: 0.05
+  sentenceDelay: 2
+  textAudio: {fileID: 8300000, guid: b970c3257bf97604ebaa3bbeab6e62bc, type: 3}
   lastBug: NewGame
 --- !u!4 &2718516
 Transform:
@@ -169,12 +172,32 @@ Transform:
   m_GameObject: {fileID: 2718514}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.9577026, y: -3.059143, z: -0.09599963}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &2718518
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2718514}
+  m_Enabled: 1
+--- !u!114 &2718519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2718514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11bd1bd32470fe45b6e3d88a67910ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &82884060
 GameObject:
   m_ObjectHideFlags: 0

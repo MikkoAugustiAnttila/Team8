@@ -22,6 +22,7 @@ public class basicManagement : MonoBehaviour
     public float letterDelay;
     [SerializeField] private float sentenceDelay;
     private int index;
+    [SerializeField] private AudioClip textAudio;
 
     public string lastBug;
     
@@ -67,13 +68,9 @@ public class basicManagement : MonoBehaviour
     {
         foreach (string chunk in chunkSet)
         {
-            if (displayTextCoroutine != null)
-            {
-                StopCoroutine(displayTextCoroutine);
-            }
-            displayTextCoroutine = StartCoroutine(DisplayTextLetterByLetter(chunk));
+            yield return StartCoroutine(DisplayTextLetterByLetter(chunk));
 
-            // Pause for a moment before displaying the next chunk
+            // Wait for seconds after fully displaying the current chunk
             yield return new WaitForSeconds(sentenceDelay);
         }
 
@@ -86,11 +83,21 @@ public class basicManagement : MonoBehaviour
 
     private IEnumerator DisplayTextLetterByLetter(string text)
     {
-        textBox.text = ""; // Clear the text box
+        textBox.text = "";
+
+        int letterCount = 0;
 
         foreach (char letter in text)
         {
             textBox.text += letter;
+            
+            if (letterCount % 3 == 0)
+            {
+                SoundManager.soundManagement.playSound(textAudio);
+            }
+
+            letterCount++;
+
             yield return new WaitForSeconds(letterDelay);
         }
     }

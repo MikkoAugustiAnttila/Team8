@@ -27,6 +27,8 @@ public class projectile : MonoBehaviour
 
     public GameObject explode;
 
+    public AudioClip shotSound;
+
     private void Start()
     {
         cannon = GameObject.FindGameObjectWithTag("Player");
@@ -94,6 +96,7 @@ public class projectile : MonoBehaviour
     {
         if (pressed == true)
         {
+            SoundManager.soundManagement.playSound(shotSound);
             inFlight = true;
             rb.isKinematic = false;
             pressed = false;
