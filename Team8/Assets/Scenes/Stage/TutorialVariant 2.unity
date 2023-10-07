@@ -919,7 +919,7 @@ MonoBehaviour:
   - 'IndexOutOfRangeException: Index was outside the bounds of the array.'
   triggerType: Fire
   playerFired: 0
-  whatToDoAtEnd: 
+  whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
 --- !u!4 &1766582733
 Transform:

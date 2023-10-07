@@ -24,7 +24,7 @@ public class LevelChangerMenu : MonoBehaviour
         }
         else
         {
-            basicManagement.basemanagement.ChangeToScene("TutorialVariant 1");
+            basicManagement.basemanagement.ChangeToScene("TutorialVariant 3");
         }
     }
     public void SetLevelActive(int value)
