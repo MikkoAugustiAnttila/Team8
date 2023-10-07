@@ -1596,6 +1596,9 @@ MonoBehaviour:
   playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
+  maxShots: 99
+  shotsLeft: 99
+  shotCounter: {fileID: 0}
 --- !u!4 &1766582733
 Transform:
   m_ObjectHideFlags: 0

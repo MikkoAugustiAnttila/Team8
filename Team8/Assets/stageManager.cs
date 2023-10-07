@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class stageManager : MonoBehaviour
 {
@@ -15,6 +18,11 @@ public class stageManager : MonoBehaviour
     [SerializeField] private string whatToDoAtEnd;
     public bool managementSignal;
 
+    [SerializeField] private int maxShots;
+    public int shotsLeft;
+    [SerializeField] private TextMeshProUGUI shotCounter;
+    
+
     private void Awake()
     {
         stateManagement = this;
@@ -27,10 +35,15 @@ public class stageManager : MonoBehaviour
         {
             basicManagement.basemanagement.DialogChunk(false, startDialog);
         }
+
+        shotCounter = GameObject.FindGameObjectWithTag("shotCounter").GetComponent<TextMeshProUGUI>();
+        shotCounter.enabled = true;
+        shotsLeft = maxShots;
     }
 
     private void Update()
     {
+        shotCounter.text = "Shots remaining: " + shotsLeft + "/" + maxShots;
         if (killsLeft == 1 && afterKills != null)
         {
             basicManagement.basemanagement.DialogChunk(true, afterKills);
@@ -45,11 +58,19 @@ public class stageManager : MonoBehaviour
                 triggerType = null;
             }
         }
+
+        if (shotsLeft == 0 && maxShots != 0 && killsLeft >= 2)
+        {
+            managementSignal = true;
+            whatToDoAtEnd = "resetScene";
+        }
         
 
         if (managementSignal == true && whatToDoAtEnd != null)
         {
             managementSignal = false;
+            shotCounter.enabled = false;
+            shotsLeft = 999;
             if (whatToDoAtEnd == "returnToMenuGlitch1")
             {
                 basicManagement.basemanagement.lastBug = "TutorialGlitch";
@@ -59,6 +80,10 @@ public class stageManager : MonoBehaviour
             {
                 basicManagement.basemanagement.lastBug = "";
                 basicManagement.basemanagement.ChangeToScene("LevelChanger");
+            }
+            if (whatToDoAtEnd == "resetScene")
+            {
+                basicManagement.basemanagement.ChangeToScene(SceneManager.GetActiveScene().name);
             }
         }
     }

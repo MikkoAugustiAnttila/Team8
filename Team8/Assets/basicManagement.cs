@@ -99,6 +99,7 @@ public class basicManagement : MonoBehaviour
     {
         GameObject newProjectile = Instantiate(projectile, pivot.transform.position, quaternion.identity);
         newProjectile.transform.parent = null;
+        stageManager.stateManagement.shotsLeft--;
     }
 
     public void ChangeToScene(string name)

@@ -915,12 +915,17 @@ MonoBehaviour:
   - Hello. This is "2" speaking.
   - 'You might be wondering what this landscape is. The answer is simple: its an
     earlier version of the stage that "1" was too lazy to delete out of the code.'
-  - I did this becaus
+  - Now be aware there is a limit to how many text boxes I can use per bugged level,
+    so there will be a point where my text is cutoff
+  - Worry not, i'll put a couple more of these in other places to help explain the
   - 'IndexOutOfRangeException: Index was outside the bounds of the array.'
   triggerType: Fire
   playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
+  maxShots: 99
+  shotsLeft: 99
+  shotCounter: {fileID: 0}
 --- !u!4 &1766582733
 Transform:
   m_ObjectHideFlags: 0

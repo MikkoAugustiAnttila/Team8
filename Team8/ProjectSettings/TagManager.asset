@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Management
   - Enemy
+  - shotCounter
   layers:
   - Default
   - TransparentFX
