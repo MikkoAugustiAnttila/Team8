@@ -917,8 +917,9 @@ MonoBehaviour:
     earlier version of the stage that "1" was too lazy to delete out of the code.'
   - I did this becaus
   - 'IndexOutOfRangeException: Index was outside the bounds of the array.'
-  triggerType: 
-  whatToDoAtEnd: returnToMenuGlitch1
+  triggerType: Fire
+  playerFired: 0
+  whatToDoAtEnd: 
   managementSignal: 0
 --- !u!4 &1766582733
 Transform:

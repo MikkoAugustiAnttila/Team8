@@ -11,6 +11,8 @@ using UnityEngine;
 public class basicManagement : MonoBehaviour
 {
     public static basicManagement basemanagement;
+    private Coroutine displayChunksCoroutine;
+    private Coroutine displayTextCoroutine;
     public GameObject projectile;
     [SerializeField] private GameObject pivot;
 
@@ -28,6 +30,7 @@ public class basicManagement : MonoBehaviour
     private void Awake()
     {
         basemanagement = this;
+        pivot = GameObject.FindGameObjectWithTag("pivot");
     }
 
     private void Update()
@@ -46,23 +49,36 @@ public class basicManagement : MonoBehaviour
     
     public void DialogChunk(bool returnToStageManager, params string[] chunkSet)
     {
-        StopCoroutine("DisplayChunksWithDelay");
-        StopCoroutine("DisplayTextLetterByLetter");
+        if (displayChunksCoroutine != null)
+        {
+            StopCoroutine(displayChunksCoroutine);
+        }
+        if (displayTextCoroutine != null)
+        {
+            StopCoroutine(displayTextCoroutine);
+        }
+
+        textBox.text = "";
         enableTextBox = true;
-        StartCoroutine(DisplayChunksWithDelay(chunkSet, returnToStageManager));
+        displayChunksCoroutine = StartCoroutine(DisplayChunksWithDelay(chunkSet, returnToStageManager));
     }
 
     private IEnumerator DisplayChunksWithDelay(string[] chunkSet, bool returnToStageManager)
     {
         foreach (string chunk in chunkSet)
         {
-            yield return StartCoroutine(DisplayTextLetterByLetter(chunk));
+            if (displayTextCoroutine != null)
+            {
+                StopCoroutine(displayTextCoroutine);
+            }
+            displayTextCoroutine = StartCoroutine(DisplayTextLetterByLetter(chunk));
+
             // Pause for a moment before displaying the next chunk
             yield return new WaitForSeconds(sentenceDelay);
         }
 
         enableTextBox = false;
-        if (returnToStageManager == true)
+        if (returnToStageManager)
         {
             stageManager.stateManagement.managementSignal = true;
         }
