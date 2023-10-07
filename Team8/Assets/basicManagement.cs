@@ -89,6 +89,7 @@ public class basicManagement : MonoBehaviour
 
     private IEnumerator DisplayTextLetterByLetter(string text)
     {
+        //This comment is here to allow commit
         textBox.text = "";
 
         int letterCount = 0;
