@@ -19,13 +19,12 @@ public class projectile : MonoBehaviour
     private float releaseDelay;
     [SerializeField] private float deathTime;
 
-    [SerializeField]
-    private GameObject star;
+    [SerializeField] private GameObject star;
 
     private SpriteRenderer renderer;
 
     private GameObject cannon;
-    
+
     private void Start()
     {
         cannon = GameObject.FindGameObjectWithTag("Player");
@@ -52,7 +51,7 @@ public class projectile : MonoBehaviour
         {
             rb.position = pivot.transform.position;
         }
-        
+
         star.transform.rotation = cannon.transform.rotation;
 
         //Debug.Log(Vector3.Distance(transform.position, pivot.transform.position));
@@ -69,9 +68,12 @@ public class projectile : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
         rb.position = worldPos;
-        star.transform.localScale = new Vector3( 1/ Vector3.Distance(star.transform.position, pivot.transform.position),
-            1 / Vector3.Distance(star.transform.position, pivot.transform.position),
-            1 / Vector3.Distance(star.transform.position, pivot.transform.position));
+        if (star.transform.position != pivot.transform.position)
+        {
+            star.transform.localScale = new Vector3(1 / Vector3.Distance(star.transform.position, pivot.transform.position),
+                1 / Vector3.Distance(star.transform.position, pivot.transform.position),
+                1 / Vector3.Distance(star.transform.position, pivot.transform.position));
+        }
     }
 
     private void OnMouseDown()
@@ -99,11 +101,11 @@ public class projectile : MonoBehaviour
 
     private IEnumerator release()
     {
-        gameObject.GetComponent<CircleCollider2D>().radius /= gameObject.GetComponent<CircleCollider2D>().radius*2;
+        gameObject.GetComponent<CircleCollider2D>().radius /= gameObject.GetComponent<CircleCollider2D>().radius * 2;
         yield return new WaitForSeconds(releaseDelay);
         joint.enabled = false;
     }
-    
+
     private IEnumerator die()
     {
         yield return new WaitForSeconds(deathTime);
