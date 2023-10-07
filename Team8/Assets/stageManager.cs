@@ -59,7 +59,7 @@ public class stageManager : MonoBehaviour
             }
         }
 
-        if (shotsLeft == 0 && maxShots != 0 && killsLeft >= 2)
+        if (shotsLeft == 0 && maxShots != 0 && killsLeft <= 2)
         {
             managementSignal = true;
             whatToDoAtEnd = "resetScene";

@@ -68,6 +68,12 @@ public class basicManagement : MonoBehaviour
     {
         foreach (string chunk in chunkSet)
         {
+            // Stop the previous coroutine to give precedence to the new chunk
+            if (displayTextCoroutine != null)
+            {
+                StopCoroutine(displayTextCoroutine);
+            }
+
             yield return StartCoroutine(DisplayTextLetterByLetter(chunk));
 
             // Wait for seconds after fully displaying the current chunk
@@ -90,7 +96,7 @@ public class basicManagement : MonoBehaviour
         foreach (char letter in text)
         {
             textBox.text += letter;
-            
+
             if (letterCount % 3 == 0)
             {
                 SoundManager.soundManagement.playSound(textAudio);

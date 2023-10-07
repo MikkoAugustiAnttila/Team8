@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.WSA;
+using Application = UnityEngine.WSA.Application;
 
 public class projectile : MonoBehaviour
 {
@@ -121,4 +122,5 @@ public class projectile : MonoBehaviour
         exploder.transform.parent = null;
         Destroy(gameObject);
     }
+    
 }
