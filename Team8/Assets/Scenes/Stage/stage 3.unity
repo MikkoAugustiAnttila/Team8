@@ -2702,7 +2702,7 @@ MonoBehaviour:
   - Blast them to pieces!
   triggerDialog: []
   triggerType: 
-  CurrentLevel: 0
+  CurrentLevel: 4
   playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0

@@ -48,6 +48,14 @@ public class LevelChangerMenu : MonoBehaviour
     {
         basicManagement.basemanagement.ChangeToScene("Stage 2");
     }
+    public void Level4()
+    {
+        basicManagement.basemanagement.ChangeToScene("Stage 3");
+    }
+    public void Level5()
+    {
+        basicManagement.basemanagement.ChangeToScene("Stage 4");
+    }
     public void SetLevelActive(int value)
     {
         _buttons[value-1].interactable = true;
@@ -59,6 +67,7 @@ public class LevelChangerMenu : MonoBehaviour
             SetLevelActive(2);
             SetLevelActive(3);
             SetLevelActive(4);
+            SetLevelActive(5);
         }
     }
 

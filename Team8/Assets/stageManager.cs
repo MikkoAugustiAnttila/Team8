@@ -87,7 +87,7 @@ public class stageManager : MonoBehaviour
                 basicManagement.basemanagement.lastBug = "";
                 if (basicManagement.basemanagement.progression <= CurrentLevel)
                 {
-                    basicManagement.basemanagement.progression++;
+                    basicManagement.basemanagement.progression = CurrentLevel+1;
                 }
                 basicManagement.basemanagement.ChangeToScene("LevelChanger");
                 
