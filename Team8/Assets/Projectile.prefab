@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17975904783c10b4eb4382e145d53ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathTime: 2
+  deathTime: 4
   star: {fileID: 749083926154478711}
   explode: {fileID: 3569702954450679526, guid: a010169e2dff43a44ba7befbbfacb11d, type: 3}
   shotSound: {fileID: 8300000, guid: 6ea26de2723457e46b25e27af632dd75, type: 3}

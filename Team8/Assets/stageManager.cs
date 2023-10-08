@@ -24,6 +24,7 @@ public class stageManager : MonoBehaviour
     public int shotsLeft;
     [SerializeField] private TextMeshProUGUI shotCounter;
     private bool noShots;
+    private bool externalTriggerHappened;
     
     
 
@@ -100,10 +101,28 @@ public class stageManager : MonoBehaviour
     
     private IEnumerator endDelay()
     {
-        Debug.Log("Its resetting!");
         yield return new WaitForSeconds(10f);
-        Debug.Log("Its resetting 2!");
-        whatToDoAtEnd = "resetScene";
-        managementSignal = true;
+        if (killsLeft > 0 && externalTriggerHappened == false)
+        {
+            whatToDoAtEnd = "resetScene";
+            managementSignal = true;
+        }
+    }
+
+    public void externalTrigger(string type, string sceneToChangeTo, float delay)
+    {
+        if (type == "TextAndChangeScene")
+        {
+            externalTriggerHappened = true;
+            basicManagement.basemanagement.DialogChunk(true, triggerDialog);
+            StartCoroutine(swapSceneWithDelay(sceneToChangeTo, delay));
+        }
+    }
+
+    private IEnumerator swapSceneWithDelay(string newScene, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        basicManagement.basemanagement.ChangeToScene(newScene);
+        
     }
 }
