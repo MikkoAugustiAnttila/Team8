@@ -164,6 +164,7 @@ MonoBehaviour:
   sentenceDelay: 2
   textAudio: {fileID: 8300000, guid: b970c3257bf97604ebaa3bbeab6e62bc, type: 3}
   BGM: {fileID: 2718520}
+  shotText: {fileID: 1554338210}
   lastBug: NewGame
   progression: 1
 --- !u!4 &2718516

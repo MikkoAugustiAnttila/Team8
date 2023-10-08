@@ -25,6 +25,7 @@ public class basicManagement : MonoBehaviour
     [SerializeField] private AudioClip textAudio;
     public AudioSource BGM;
     private AudioClip nextClip;
+    [SerializeField] private TextMeshProUGUI shotText;
 
 
     public string lastBug;
@@ -71,7 +72,9 @@ public class basicManagement : MonoBehaviour
 
         textBox.text = "";
         enableTextBox = false;
+        
         // Optionally, return to the menu scene here
+        shotText.enabled = false;
         ChangeToScene("StartScreen");
     }
     
