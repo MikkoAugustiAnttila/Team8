@@ -57,6 +57,22 @@ public class basicManagement : MonoBehaviour
             textBox.enabled = false;
             boxForText.enabled = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangeToScene("StartScreen");
+            textBox.text = "";
+            if (displayChunksCoroutine != null)
+            {
+                StopCoroutine(displayChunksCoroutine);
+            }
+            if (displayTextLetterByLetterCoroutine != null)
+            {
+                StopCoroutine(displayTextLetterByLetterCoroutine);
+            }
+            enableTextBox = false;
+            DialogChunk(false, "");
+        }
     }
     
     public void DialogChunk(bool returnToStageManager, params string[] chunkSet)

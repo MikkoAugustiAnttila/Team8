@@ -36,6 +36,15 @@ public class stageManager : MonoBehaviour
     private void Start()
     {
         killsLeft = GameObject.FindGameObjectsWithTag("Enemy").Length+1;
+        
+        
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Debug.Log(enemy.transform.position);
+        }
+        
+        
+        
         if (startDialog != null)
         {
             basicManagement.basemanagement.DialogChunk(false, startDialog);
