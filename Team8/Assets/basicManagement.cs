@@ -24,8 +24,8 @@ public class basicManagement : MonoBehaviour
     private int index;
     [SerializeField] private AudioClip textAudio;
     public AudioSource BGM;
-    //public bool playing = false;
-    
+    private AudioClip nextClip;
+
 
     public string lastBug;
     public int progression = 1;
@@ -178,20 +178,26 @@ public class basicManagement : MonoBehaviour
     }
     public void BackgroundMusicChaner()
     {
-        if(BGM.clip != SoundManager.soundManagement.BackgroundMusic[0])
+        if (SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "LevelChanger")
+        {
+            nextClip = SoundManager.soundManagement.BackgroundMusic[0];
+
+        }
+        else
+        {
+            nextClip = SoundManager.soundManagement.BackgroundMusic[1];
+
+        }
+
+
+
+        if (nextClip != BGM.clip)
         {
             BGM.Stop();
+            BGM.clip= nextClip;
+            BGM.Play();
             //checks which scene is played and sets audio correctly
-            if (SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "LevelChanger")
-            {
-                BGM.clip = SoundManager.soundManagement.BackgroundMusic[0];
-                BGM.Play();
-            }
-            else
-            {
-                BGM.clip = SoundManager.soundManagement.BackgroundMusic[1];
-                BGM.Play();
-            }
+            
         }
         
     }
