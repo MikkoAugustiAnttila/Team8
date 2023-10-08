@@ -272,3 +272,5 @@ MonoBehaviour:
   star: {fileID: 749083926154478711}
   explode: {fileID: 3569702954450679526, guid: a010169e2dff43a44ba7befbbfacb11d, type: 3}
   shotSound: {fileID: 8300000, guid: 6ea26de2723457e46b25e27af632dd75, type: 3}
+  flameParticle: {fileID: 0}
+  shootParticle: {fileID: 3569702954450679526, guid: 3431c21fd64d1304282ecd00c3725b05, type: 3}

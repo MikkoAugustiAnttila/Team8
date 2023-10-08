@@ -9,6 +9,7 @@ TagManager:
   - Management
   - Enemy
   - shotCounter
+  - FlameEffect
   layers:
   - Default
   - TransparentFX

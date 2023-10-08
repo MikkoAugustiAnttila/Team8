@@ -28,6 +28,7 @@ public class projectile : MonoBehaviour
 
     public AudioClip shotSound;
 
+    [SerializeField] private ParticleSystem flameParticle;
     private void Start()
     {
         cannon = GameObject.FindGameObjectWithTag("Player");
@@ -41,6 +42,9 @@ public class projectile : MonoBehaviour
 
         releaseDelay = 1 / (joint.frequency * 4);
         projectileRenderer.enabled = false;
+
+        flameParticle = GameObject.FindGameObjectWithTag("FlameEffect").GetComponent<ParticleSystem>();
+        flameParticle.Stop();
     }
 
     private void Update()
@@ -85,6 +89,7 @@ public class projectile : MonoBehaviour
         notClicked = false;
         if (canDrag)
         {
+            flameParticle.Play();
             rb.isKinematic = true;
             pressed = true;
             canDrag = false;
@@ -95,6 +100,7 @@ public class projectile : MonoBehaviour
     {
         if (pressed == true)
         {
+            flameParticle.Stop();
             SoundManager.soundManagement.playSound(shotSound);
             inFlight = true;
             rb.isKinematic = false;
