@@ -37,12 +37,6 @@ public class basicManagement : MonoBehaviour
         basemanagement = this;
         pivot = GameObject.FindGameObjectWithTag("pivot");
     }
-    public void Start()
-    {
-        
-        
-        
-    }
 
     private void Update()
     {
@@ -60,19 +54,25 @@ public class basicManagement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ChangeToScene("StartScreen");
-            textBox.text = "";
-            if (displayChunksCoroutine != null)
-            {
-                StopCoroutine(displayChunksCoroutine);
-            }
-            if (displayTextLetterByLetterCoroutine != null)
-            {
-                StopCoroutine(displayTextLetterByLetterCoroutine);
-            }
-            enableTextBox = false;
-            DialogChunk(false, "");
+            CloseDialog();
         }
+    }
+    
+    public void CloseDialog()
+    {
+        if (displayChunksCoroutine != null)
+        {
+            StopCoroutine(displayChunksCoroutine);
+        }
+        if (displayTextLetterByLetterCoroutine != null)
+        {
+            StopCoroutine(displayTextLetterByLetterCoroutine);
+        }
+
+        textBox.text = "";
+        enableTextBox = false;
+        // Optionally, return to the menu scene here
+        ChangeToScene("StartScreen");
     }
     
     public void DialogChunk(bool returnToStageManager, params string[] chunkSet)
