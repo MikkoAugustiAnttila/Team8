@@ -101,6 +101,7 @@ public class projectile : MonoBehaviour
             inFlight = true;
             rb.isKinematic = false;
             pressed = false;
+            stageManager.stateManagement.shotsLeft--;
             StartCoroutine("release");
             StartCoroutine("die");
         }

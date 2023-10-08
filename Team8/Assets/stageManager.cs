@@ -23,6 +23,7 @@ public class stageManager : MonoBehaviour
     [SerializeField] private int maxShots;
     public int shotsLeft;
     [SerializeField] private TextMeshProUGUI shotCounter;
+    private bool noShots;
     
     
 
@@ -62,9 +63,10 @@ public class stageManager : MonoBehaviour
             }
         }
 
-        if (shotsLeft == 0 && maxShots != 0 && killsLeft <= 2)
+        if (shotsLeft == 0 && killsLeft > 0 && noShots == false)
         {
             StartCoroutine("endDelay");
+            noShots = true;
         }
         
 
@@ -98,8 +100,10 @@ public class stageManager : MonoBehaviour
     
     private IEnumerator endDelay()
     {
+        Debug.Log("Its resetting!");
         yield return new WaitForSeconds(10f);
-        managementSignal = true;
+        Debug.Log("Its resetting 2!");
         whatToDoAtEnd = "resetScene";
+        managementSignal = true;
     }
 }

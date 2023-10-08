@@ -115,9 +115,11 @@ public class basicManagement : MonoBehaviour
 
     public void createProjectile()
     {
-        GameObject newProjectile = Instantiate(projectile, pivot.transform.position, quaternion.identity);
-        newProjectile.transform.parent = null;
-        stageManager.stateManagement.shotsLeft--;
+        if (stageManager.stateManagement.shotsLeft > 0)
+        {
+            GameObject newProjectile = Instantiate(projectile, pivot.transform.position, quaternion.identity);
+            newProjectile.transform.parent = null;
+        }
     }
 
     public void ChangeToScene(string name)
