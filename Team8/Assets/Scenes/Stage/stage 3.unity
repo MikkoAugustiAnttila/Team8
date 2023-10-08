@@ -2127,7 +2127,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3812e139d6559284cac62fe6fdaae5a3, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2145,13 +2145,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234699967}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.32, y: -1.67, z: 0}
-  m_LocalScale: {x: 2.121, y: 2.3641, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.270597, w: 0.96269274}
+  m_LocalPosition: {x: 9.89, y: -11.05, z: 0}
+  m_LocalScale: {x: 1.3417447, y: 1.4638507, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -31.4}
 --- !u!1 &1284817045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,7 +2706,7 @@ MonoBehaviour:
   playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
-  maxShots: 3
+  maxShots: 4
   shotsLeft: 0
   shotCounter: {fileID: 0}
 --- !u!4 &1766582733
