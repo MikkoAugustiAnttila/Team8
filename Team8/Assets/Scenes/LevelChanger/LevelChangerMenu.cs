@@ -56,11 +56,16 @@ public class LevelChangerMenu : MonoBehaviour
     {
         basicManagement.basemanagement.ChangeToScene("Stage 4");
     }
+    public void Level6()
+    {
+        basicManagement.basemanagement.ChangeToScene("Stage 5");
+    }
     public void SetLevelActive(int value)
     {
         _buttons[value-1].interactable = true;
     }
     private void Update()
+
     {
         if (Input.GetKeyDown("p"))
         {
@@ -68,6 +73,7 @@ public class LevelChangerMenu : MonoBehaviour
             SetLevelActive(3);
             SetLevelActive(4);
             SetLevelActive(5);
+            SetLevelActive(6);
         }
     }
 
