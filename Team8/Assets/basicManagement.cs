@@ -23,6 +23,9 @@ public class basicManagement : MonoBehaviour
     [SerializeField] private float sentenceDelay;
     private int index;
     [SerializeField] private AudioClip textAudio;
+    public AudioSource BGM;
+    //public bool playing = false;
+    
 
     public string lastBug;
     public int progression = 1;
@@ -34,9 +37,16 @@ public class basicManagement : MonoBehaviour
         basemanagement = this;
         pivot = GameObject.FindGameObjectWithTag("pivot");
     }
+    public void Start()
+    {
+        
+        
+        
+    }
 
     private void Update()
     {
+        
         if (enableTextBox == true)
         {
             textBox.enabled = true;
@@ -162,5 +172,28 @@ public class basicManagement : MonoBehaviour
         {
             Debug.LogError("Scene not loaded: " + name);
         }
+        BackgroundMusicChaner();
+
+
     }
+    public void BackgroundMusicChaner()
+    {
+        if(BGM.clip != SoundManager.soundManagement.BackgroundMusic[0])
+        {
+            BGM.Stop();
+            //checks which scene is played and sets audio correctly
+            if (SceneManager.GetActiveScene().name == "StartScreen" || SceneManager.GetActiveScene().name == "LevelChanger")
+            {
+                BGM.clip = SoundManager.soundManagement.BackgroundMusic[0];
+                BGM.Play();
+            }
+            else
+            {
+                BGM.clip = SoundManager.soundManagement.BackgroundMusic[1];
+                BGM.Play();
+            }
+        }
+        
+    }
+
 }
