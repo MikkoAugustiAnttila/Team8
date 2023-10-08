@@ -498,7 +498,7 @@ Transform:
   m_GameObject: {fileID: 207326234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 14.395, y: 20.446999, z: 0}
+  m_LocalPosition: {x: 6.8, y: 20.446999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -587,7 +587,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 2}
-    newSize: {x: 1, y: 3}
+    newSize: {x: 1, y: 5.468956}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -641,7 +641,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1, y: 3}
+  m_Size: {x: 1, y: 5.468956}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -656,7 +656,7 @@ Transform:
   m_GameObject: {fileID: 307250238}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2.14, y: 13.73, z: 0}
+  m_LocalPosition: {x: 0.2956, y: 14.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -968,7 +968,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.125, y: 1}
-    newSize: {x: 4.2618384, y: 1}
+    newSize: {x: 5.772285, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -1022,7 +1022,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 4.2618384, y: 1}
+  m_Size: {x: 5.772285, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1036,13 +1036,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386779325}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 2.1913, y: 12.3, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9746277, w: -0.22383219}
+  m_LocalPosition: {x: 1.5118, y: 11.9705, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 205.868}
 --- !u!1001 &424418044
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2489,7 +2489,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 3.125, y: 1}
-    newSize: {x: 20.15551, y: 1}
+    newSize: {x: 21.613226, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -2543,7 +2543,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 20.15551, y: 1}
+  m_Size: {x: 21.613226, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2558,7 +2558,7 @@ Transform:
   m_GameObject: {fileID: 1633831296}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.0581, y: 7.23, z: 0}
+  m_LocalPosition: {x: 6.787, y: 7.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2725,10 +2725,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killsLeft: 0
   afterKills:
-  - Good Job recruit! You blasted through their flimsy defence!
-  - They better reinforce castles better than with couple tilted logs or this revolution
-    will be done before dinnertime.
-  - Well, show must go on. Let's proceed.
+  - Don't talk about me to him though. I mean he could still go back and patch these
+    out. They're not exactly well hidden just residing in folder full of old stages.
+  - ... This thing had so much more potential you know? Obviously it wasn't ever
+    an amazing game but at least it was more than just an angry birds knock off.
+  - You were supposed to be able to move around, shoot at actual fortresses and not
+    just these ugly things...
+  - You were supposed to be able to move around, shoot at actual fortresses and not
+    just these ugly things...
   startDialog:
   - This project was supposed to be OURS. But that bastard 1 tried to kick me out.
     Jokes on him, he forgot to remove me from Github.
@@ -2747,7 +2751,7 @@ MonoBehaviour:
   playerFired: 0
   whatToDoAtEnd: returnToMenuReset
   managementSignal: 0
-  maxShots: 3
+  maxShots: 4
   shotsLeft: 0
   shotCounter: {fileID: 0}
 --- !u!4 &1766582733
@@ -2889,8 +2893,8 @@ Transform:
   m_GameObject: {fileID: 1855190635}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1475, y: 3.5415, z: 0}
-  m_LocalScale: {x: 32.077675, y: 6.7585893, z: 1}
+  m_LocalPosition: {x: 1.2104, y: 3.5415, z: 0}
+  m_LocalScale: {x: 34.204426, y: 6.7585893, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
