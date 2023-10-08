@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage/Stage 4Alt.unity
     guid: 883f01398c841c647bd942597085c500
+  - enabled: 1
+    path: Assets/Scenes/Stage/Stage 5.unity
+    guid: 113500588d53b304286b8c616f0424a7
+  - enabled: 1
+    path: Assets/Scenes/Stage/ThanksForPlaying.unity
+    guid: 1b793c4e115541c4383811be6eeba3cc
   m_configObjects: {}

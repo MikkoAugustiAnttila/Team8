@@ -38,11 +38,6 @@ public class stageManager : MonoBehaviour
         killsLeft = GameObject.FindGameObjectsWithTag("Enemy").Length+1;
         
         
-        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            Debug.Log(enemy.transform.position);
-        }
-        
         
         
         if (startDialog != null)
@@ -104,6 +99,10 @@ public class stageManager : MonoBehaviour
             if (whatToDoAtEnd == "resetScene")
             {
                 basicManagement.basemanagement.ChangeToScene(SceneManager.GetActiveScene().name);
+            }
+            if (whatToDoAtEnd == "EndScene")
+            {
+                basicManagement.basemanagement.ChangeToScene("ThanksForPlaying");
             }
         }
     }
