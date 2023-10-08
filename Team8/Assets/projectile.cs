@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.WSA;
-using Application = UnityEngine.WSA.Application;
 
 public class projectile : MonoBehaviour
 {
