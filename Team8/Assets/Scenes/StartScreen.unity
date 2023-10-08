@@ -1428,7 +1428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title will be here
+  m_text: Cannons of The Great Revolution
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b8096a487e5e0844a2d2bd8380d7040, type: 2}
   m_sharedMaterial: {fileID: 6206310633287035139, guid: 3b8096a487e5e0844a2d2bd8380d7040, type: 2}
@@ -1778,7 +1778,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Programmers and Graphic Designers:
+
+    Mikko Anttila
+
+    Ville Leino
+
+    Jesper
+    Sarin
+
+    
+
+    Music:
+
+    Dance of devils by Giulio Fazio
+
+    Defending
+    the village by Benjamin Bot'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b8096a487e5e0844a2d2bd8380d7040, type: 2}
   m_sharedMaterial: {fileID: 6206310633287035139, guid: 3b8096a487e5e0844a2d2bd8380d7040, type: 2}
