@@ -2614,16 +2614,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   killsLeft: 0
   afterKills:
-  - Good Job recruit! You blasted through their flimsy defence!
-  - They better reinforce castles better than with couple tilted logs or this revolution
-    will be done before dinnertime.
-  - Well, show must go on. Let's proceed.
+  - You knocked down their inadequate excuse of a fortress!
+  - Not bad, greenhorn.
+  - To the next fortress, the revolution lives on!
   startDialog:
-  - 'Gettings the ropes eh?  '
-  - 'Nahh you are still a greenhorn. '
-  - Now, this ain't a practise anymore.
-  - See, that hoodlum up there.
-  - Demolish that darn thing and show them!
+  - Well, would you look at that.
+  - We caught them trying to reinforce their castle with metal.
+  - Demolish it before they finish the upgrades!
   triggerDialog: []
   triggerType: 
   CurrentLevel: 3
